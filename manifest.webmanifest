@@ -1,0 +1,32 @@
+{
+    "theme_color": "#d0021b",
+    "background_color": "#131313",
+    "display": "browser",
+    "scope": "/",
+    "start_url": "/index.html",
+    "name": "API_Movie@2021",
+    "short_name": "Movie2021",
+    "description": "Esta app mediante una API se encarga de mostrar las peliculas  en estreno del presente anio.",
+    "icons": [
+        {
+            "src": "/icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
