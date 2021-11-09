@@ -25,9 +25,9 @@ function getMovies(url) {
     .catch((err) => {
       noContent.innerHTML =  `
         <div class="col text-center">
+        <h1 class="title">No hay conexion a internet </h1>
         <div class="conexion">
         <img src="/icons/noconnection.png" class ="img-fluid" alt=Responsive image"></div>
-          <h1 class="title">No hay conexion a internet </h1>
         </div>
         `;
     });
