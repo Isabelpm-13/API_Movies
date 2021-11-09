@@ -22,16 +22,19 @@ function getMovies(url) {
       showMovies(data.results);
     })
 
-    .catch((err) => {
-      noContent.innerHTML =  `
-        <div class="col text-center">
-        <h1 class="title">No hay conexion a internet </h1>
-        <div class="conexion">
-        <img src="/icons/noconnection.png" class ="img-fluid" alt=Responsive image"></div>
-        </div>
-        `;
-    });
+    .catch((err) => alertConection (err));
 }
+
+function alertConection(error){
+  noContent.innerHTML =  `
+  <div class="col text-center">
+  <h1 class="title">No hay conexion a internet </h1>
+  <div class="conexion">
+  <img src="/icons/noconnection.png" class ="img-fluid" alt=Responsive image"></div>
+  </div>
+  `;
+}
+
 
 function showMovies(data) {
   main.innerHTML = "";
