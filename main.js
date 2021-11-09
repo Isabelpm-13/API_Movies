@@ -30,7 +30,7 @@ function alertConection(error){
   <div class="col text-center">
   <h1 class="title">No hay conexion a internet </h1>
   <div class="conexion">
-  <img src="/icons/noconnection.png" class ="img-fluid" alt=Responsive image"></div>
+  <img src="/assets/noconnection.png" class ="img-fluid" alt=Responsive image"></div>
   </div>
   `;
 }
