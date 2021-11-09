@@ -1,7 +1,7 @@
 {
     "theme_color": "#d0021b",
     "background_color": "#131313",
-    "display": "browser",
+    "display": "fullscreen",
     "scope": "/",
     "start_url": "/index.html",
     "name": "API_Movie@2021",
