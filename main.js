@@ -26,7 +26,7 @@ function getMovies(url) {
       noContent.innerHTML =  `
         <div class="col text-center">
         <div class="conexion">
-        <img src="/icons/icons8-wifi-apagado-96.png" class ="img-fluid" alt=Responsive image"></div>
+        <img src="/icons/noconnection.png" class ="img-fluid" alt=Responsive image"></div>
           <h1 class="title">No hay conexion a internet </h1>
         </div>
         `;
