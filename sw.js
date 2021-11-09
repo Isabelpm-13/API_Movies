@@ -1,7 +1,13 @@
 //Create Appshell
 const _n_cache = "cache-v2.9";
 
-  const _files = ["./index.html", "./style.css", "./main.js", "./app.js"];
+  const _files = [
+    "./index.html", 
+    "./style.css", 
+    "./assets/icons/noconnection.png",
+    "./main.js", 
+    "./app.js"
+  ];
 
   
 
