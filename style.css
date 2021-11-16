@@ -76,6 +76,8 @@ footer{
     color: hsl(0, 94%, 46%);
 }
 
+
+
 #snackbar {
     visibility: hidden; /* Hidden by default. Visible on click */
     min-width: 250px; /* Set a default minimum width */
