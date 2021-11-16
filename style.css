@@ -42,6 +42,7 @@ header{
     justify-content: center;
     padding: 0.5rem 0.2rem 0.2rem;
     letter-spacing: 0.5px;
+    font-display: swap;
 
 }
 
@@ -57,7 +58,7 @@ header{
 .title{
     color: #ddd5d6;
     text-align: center;
-    font-size: xx-large;
+    font-display: swap;
 
 }
 
@@ -74,6 +75,7 @@ footer{
     font-family: 'Raleway', sans-serif;
     justify-content: center;
     color: hsl(0, 94%, 46%);
+    font-display: swap;
 }
 
 
