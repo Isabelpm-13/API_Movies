@@ -19,7 +19,7 @@ header{
     background-color: #070707;
     font-size:xx-large;
     color: hsl(0, 25%, 2%);
-    color: #020202; text-shadow: rgb(248, 237, 237) 0.1em 0.1em 0.2em
+    color: hsl(0, 94%, 50%); text-shadow: rgb(248, 237, 237) 0.1em 0.1em 0.2em
 }
 
 .movie{
@@ -54,7 +54,7 @@ header{
 }
 
 .title{
-    color: #e7111c;
+    color: #ddd5d6;
     text-align: center;
 
 }
