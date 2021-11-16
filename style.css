@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
 
 body{
-    background-color: #070707;
+    background-color: #f83232;
     font-family: 'Anton', sans-serif;
     margin: 0;
 }
@@ -18,8 +18,8 @@ header{
     padding: 1rem;
     background-color: hsl(0, 0%, 2%);
     font-size:xx-large;
-    color: hsla(0, 98%, 50%, 0.714);
-    color: rgb(224, 8, 8); text-shadow: rgb(248, 237, 237) 0.1em 0.1em 0.2em
+    color: rgb(231, 226, 226);
+    color: rgb(250, 244, 244); text-shadow: rgb(248, 237, 237) 0.1em 0.1em 0.2em
 }
 
 .movie{
