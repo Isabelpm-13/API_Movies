@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
 
-
 <head>
-    <link href="manifest.json" rel="manifest">
+     <link href="manifest.json" rel="manifest">
+     <link rel="stylesheet" href="style.css">
+     <!--Metas -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="App que toma datos de una API de peliculas, devolviendo las peliculas del año 2021">
+    <meta name="keywords" content="API, MOVIES, APP">
+    <meta name="theme-color" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <!--Links -->
+    <link href="/assets/icons/touch-icon-iphone.png.png" rel="apple-touch-icon">
     <title>Películas</title>
 </head>
 <body>
+    <div id="snackbar">
+        <a id="launchUpdate">
+            Actualizacion disponible.</a>
+        </div>
     <header>
-        <h1> Estrenos 2021 </h1>
+        <h1> "Estrenos 2021" </h1>
     </header>
 
     <main id="main"></main>

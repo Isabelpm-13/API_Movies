@@ -1,40 +1,69 @@
-//Create Appshell
-const _n_cache = "cache-v2.9";
-
-  const _files = [
-    "./index.html", 
-    "./style.css", 
-    "./assets/noconnection.png",
-    "./main.js", 
-    "./app.js"
-  ];
-
-  
+let staticCache = "staticCache-v8";
+let dynamicCache = "dynamicCache-v8";
+let immutableCache = "immutableCache-v8";
 
 self.addEventListener("install", (event) => {
-    const _app_shell = caches
-      .open(_n_cache)
-      .then((cache) => cache.addAll(_files));
-  
-    event.waitUntil(_app_shell);
-  
-  });
+  console.log("INSTALL");
 
+  const _files = ["/index.html", "/style.css", "/main.js", "/assets/noconnection.png","/app.js"];
+
+  const _IMMUTABLE_FILES = [];
+
+  const saveStaticCache = caches
+    .open(staticCache)
+    .then((cache) => cache.addAll(_files)); //Todos los caches ejemplo .open devuelven una promesa
+
+  const saveImmutableCache = caches
+    .open(immutableCache)
+    .then((cache) => cache.addAll(_IMMUTABLE_FILES));
+
+  event.waitUntil(Promise.all([saveStaticCache, saveImmutableCache]));
+});
 //Activación
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((cacheList) => {
-      return Promise.all(
-        cacheList.map((cache) => {
-          if (!_n_cache.includes(cache)) {
-            return caches.delete(cache);
-          }
-        })
-      );
+self.addEventListener('activate', (e) => {
+  e.waitUntil( //El código dentro va a esperar a que todo el bloque termine.
+      caches.keys().then(cacheList => {
+          return Promise.all(
+              cacheList.map(cache => { 
+                  if (!staticCache.includes(cache) && !immutableCache.includes(cache)) {
+                      return caches.delete(cache); 
+                  }
+              }));
+      })
+  );
+});
+
+//First cache with backup
+self.addEventListener('fetch', event => {
+  const _RESULT = caches.match(event.request).then((cacheResponse) => {
+  return (
+    cacheResponse ||
+    fetch(Event.request).then((networkResponse) => {
+      caches.open(dynamicCache).then((cache) => {
+        cache.put(event.request, networkResponse.clone());
+        return networkResponse
+      })
+      }
+  ));
+    });
+});
+
+self.addEventListener("message", (msgClient) => {
+  if (msgClient.data.action == "skipWaiting") {
+    self.skipWaiting();
+  }
+
+})
+
+//3 Cache First
+/*self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) return cachedResponse;
+       return fetch(event.request);
     })
   );
-  //console.log("ACTIVATE");
-});
+});*/
 
 //Cache ONLY
 /*self.addEventListener('fetch', event => {
@@ -54,13 +83,3 @@ self.addEventListener("activate", (event) => {
             })
         );
     });*/
-
-//3 Cache First
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) return cachedResponse;
-      return fetch(event.request);
-    })
-  );
-});

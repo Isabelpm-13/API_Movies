@@ -11,6 +11,8 @@ const IMG_URL = "https://image.tmdb.org/t/p/w500";
 const main = document.getElementById("main");
 const noContent = document.getElementById("noContent");
 
+let newServiceWorker;
+
 getMovies(API_URL);
 
 function getMovies(url) {
@@ -23,19 +25,18 @@ function getMovies(url) {
     })
 
     .catch((err) => alertConection (err));
-}
-
-function alertConection(error){
-  noContent.innerHTML =  `
-  <div class="col text-center">
-  <h1 class="title">No hay conexion a internet </h1>
-  <div class="conexion">
-  <img src="/assets/noconnection.png" class ="img-fluid" alt=Responsive image"></div>
-  </div>
-  `;
-}
-
-
+  }
+  
+  function alertConection(error){
+    noContent.innerHTML =  `
+    <div class="col text-center">
+    <h1 class="title">No hay conexion a internet </h1>
+    <div class="conexion">
+    <img src="/assets/noconnection.png" class ="img-fluid" alt=Responsive image"></div>
+    </div>
+    `;
+  }
+  
 function showMovies(data) {
   main.innerHTML = "";
 
@@ -53,3 +54,14 @@ function showMovies(data) {
     main.appendChild(movieElement);
   });
 }
+
+
+
+let launchUpdate = document.getElementById('launchUpdate');
+launchUpdate.addEventListener('click', () => {
+    newServiceWorker.postMessage({
+        action: 'skipWaiting'
+    })
+
+    window.location.reload()
+})
